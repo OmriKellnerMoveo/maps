@@ -1,0 +1,11 @@
+agm-map {
+  height: 600px;
+}
+.container{
+  background: greenyellow;
+}
+.btn{
+  margin-right: 20px;
+  border-color: black;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,10 @@
+.background-container{
+  padding-top: 3%;
+  padding-bottom: 9%;
+  padding-inline: 10%;
+  border: green;
+  border-style: ridge;
+  background: bisque;
+  font-family: DejaVu Sans Mono, monospace;
+  font-style: italic;
+}
