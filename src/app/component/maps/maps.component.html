@@ -12,8 +12,8 @@
   <option value="BICYCLING">Bicycling</option>
   <option value="TRANSIT">Transit</option>
 </select>
-<button class="btn" (click)="setSource()" type="button" >Source</button>
-<button class="btn" (click)="setDestination()" type="button">Destination</button>
+<button class="btn" (click)="setLocation('source')" type="button" >Source</button>
+<button class="btn" (click)="setLocation('destination')" type="button">Destination</button>
 <agm-map [zoom]="zoom"  [latitude]="location.lat" [longitude]="location.lng" (mapClick)="onChoseLocation($event)">
   <agm-direction
     [origin]="origin"
@@ -21,12 +21,13 @@
     [travelMode]="travelMode"
   >
   </agm-direction>
-  <agm-marker  [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+  <agm-marker  [latitude]="location.lat" [longitude]="location.lng" [markerDraggable]="true" (dragEnd)="onChoseLocation($event)"></agm-marker>
 </agm-map>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <app-bottom-details
   [element]='{
   distance:distance,
   address:location.address,
-  lat:location.lat,lng:location.lng}'>
+  lat:location.lat,lng:location.lng}'
+>
 </app-bottom-details>
