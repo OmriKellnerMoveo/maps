@@ -44,7 +44,7 @@ export class MapsComponent implements OnInit {
             return;
           }
           const {lat, lng} = geometry.location
-          this.updateLocation(lat(),lng(),this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
+          this.updateLocation(lat(), lng(), this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
           this.zoom = 8;
         });
       });
@@ -61,7 +61,7 @@ export class MapsComponent implements OnInit {
   }
 
   onChoseLocation(event: any) {
-    this.updateLocation(event.coords.lat,event.coords.lng,this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
+    this.updateLocation(event.coords.lat, event.coords.lng, this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
     this.zoom = 12
     this.isSourceLocation ? this.sourceLocation = this.location : this.destinationLocation = this.location
   }
@@ -91,20 +91,20 @@ export class MapsComponent implements OnInit {
     this.updateLocation(lat, lng, address)
   }
 
+  updateLocation(lat: number, lng: number, address: string) {
+    this.location = {
+      lat: lat, lng: lng, address: address
+    }
+  }
+
   private setCurrentLocation() {
     if ('geolocation' in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
         const {latitude, longitude} = position.coords
-        this.updateLocation(latitude,longitude,this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
+        this.updateLocation(latitude, longitude, this.mapService.getAddress(this.location.lat, this.location.lng, this.geoCoder))
         this.zoom = 8;
         this.isSourceLocation ? this.sourceLocation = this.location : this.destinationLocation = this.location
       });
-    }
-  }
-  updateLocation(lat: number, lng: number,address:string)
-  {
-    this.location = {
-      lat: lat, lng: lng, address: address
     }
   }
 }
