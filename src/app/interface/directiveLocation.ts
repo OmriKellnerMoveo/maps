@@ -1,6 +1,6 @@
 import {Location} from "./location";
 
-export interface Directivelocation {
+export interface DirectiveLocation {
   saveLocations: Array<{
     travelMode:string,
     sourceLocation:Location,
